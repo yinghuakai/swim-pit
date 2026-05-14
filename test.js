@@ -1,53 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>游泳私教好评生成器</title>
-<style>
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',PingFang SC,Hiragino Sans,'Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);min-height:100vh;margin:0;display:flex;justify-content:center;align-items:center;padding:20px}
-.container{max-width:420px;width:100%;background:rgba(255,255,255,0.95);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-.header{text-align:center;margin-bottom:25px}
-.icon{font-size:48px;margin-bottom:10px}
-.title{font-size:24px;font-weight:700;color:#333;margin-bottom:5px}
-.subtitle{font-size:13px;color:#666;line-height:1.5}
-.result-area{background:#f8f9fa;border-radius:12px;padding:20px;min-height:140px;margin-bottom:20px;border:2px dashed #ddd}
-.result-text{font-size:14.5px;line-height:1.85;color:#333;white-space:pre-wrap;text-align:justify}
-.placeholder{color:#999;text-align:center;padding:45px 20px;font-size:14px}
-.btn-row{display:flex;gap:10px;margin-bottom:15px}
-.btn{flex:1;padding:14px 10px;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s}
-.btn-primary{background:linear-gradient(135deg,#00c6ff,#0072ff);color:#fff}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,114,255,0.4)}
-.btn-secondary{background:#e9ecef;color:#495057}
-.btn-copy{background:linear-gradient(135deg,#f093fb,#f5576c);color:#fff;width:100%;margin-top:10px}
-.btn-copy.copied{background:linear-gradient(135deg,#11998e,#38ef7d)}
-.stats{display:flex;justify-content:center;gap:30px;padding:15px 0;font-size:13px;color:#666}
-.toast{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.8);color:#fff;padding:15px 30px;border-radius:10px;font-size:16px;opacity:0;pointer-events:none;transition:0.3s;z-index:9999}
-.toast.show{opacity:1}
-</style>
-</head>
-<body>
-<div class="container">
-  <div class="header">
-    <div class="icon">🏊</div>
-    <div class="title">游泳私教好评生成器</div>
-    <div class="subtitle">蛙泳·自由泳·仰泳·蝶泳·全泳姿<br>每条约100字 · 真实自然 · 随机不重复</div>
-  </div>
-  <div class="result-area" id="resultArea">
-    <div class="placeholder">点击"生成好评"按钮开始</div>
-  </div>
-  <div class="btn-row">
-    <button class="btn btn-primary" onclick="generate()">🎲 生成好评</button>
-    <button class="btn btn-secondary" onclick="clearResult()">🗑️ 清空</button>
-  </div>
-  <button class="btn btn-copy" id="copyBtn" onclick="copyText()">📋 一键复制</button>
-  <div class="stats">
-    <span>已生成: <b id="count">0</b> 条</span>
-    <span>模板: 50+</span>
-  </div>
-</div>
-<div class="toast" id="toast"></div>
-<script>
+
 const templates=[
   '蛙泳私教课体验太棒了！我是完全的零基础，以前下水就紧张，连脸都不敢埋进水里。教练特别有耐心，第一节课没有急着教动作，而是先带我适应水环境，练习憋气和漂浮。这个基础打得特别好，后面学起来就顺利多了。蛙泳腿的收翻蹬夹动作教练分解成好几个步骤一步步教，每个步骤都练熟了再进行下一步。现在我已经能连续游25米了，虽然速度不快但动作很标准。教练说蛙泳最重要的是节奏感不能急，慢慢来反而进步更快。每次上课教练都会在旁边跟着游随时纠正动作，安全感满满。想学游泳的朋友真的推荐从蛙泳开始，找对教练很关键！',
   '自由泳私教课让我彻底爱上了游泳！之前自学过自由泳但游不了多远就喘得不行，而且胳膊酸得要命。教练一看就说我的问题在于呼吸节奏不对和划水效率太低。呼吸方面教了我侧身转头吸气而不是抬头吸气，这个改变让换气变得轻松太多了。划水方面纠正了我的高肘抱水动作，说要用身体的核心力量带动手臂而不是光靠肩膀发力。调整后同样游50米消耗的体力少了一半都不止。现在我能连续游200米自由泳了这在以前根本不敢想。教练还教了如何分配体力和控制配速，这些细节真的只有专业教练才能指点出来。强烈推荐给想学好自由泳的人！',
@@ -121,6 +72,3 @@ function showToast(msg){
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2000);
 }
-</script>
-</body>
-</html>
